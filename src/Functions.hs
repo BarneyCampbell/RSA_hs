@@ -2,11 +2,11 @@ module Functions where
 
 import Math.NumberTheory.Primes ( nextPrime, Prime(unPrime) )
 
-encrypt :: Integer -> Integer -> Integer -> Integer
-encrypt plain key base = (plain ^ key) `mod` base
+encrypt :: (Integer, Integer, Integer) -> Integer
+encrypt (plain, key, base) = (plain ^ key) `mod` base
 
-decrypt :: Integer -> Integer -> Integer -> Integer
-decrypt cipher key base = (cipher ^ key) `mod` base
+decrypt :: (Integer, Integer, Integer) -> Integer
+decrypt (cipher, key, base) = (cipher ^ key) `mod` base
 
 prime :: Integer -> Integer
 prime n = unPrime $ nextPrime n

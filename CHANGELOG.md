@@ -8,9 +8,13 @@
 * Added `arithmoi` for prime generation.
 * Output current values (p, q, n, m, e)
 
-TODO: find d s.t. d * e mod m = 1
-
 ## 0.1.0.1 -- 2023-05-20
 
 * Fixed multiplicative inverse calculator for d
 * Officially able to encrypt and decrypt correctly
+
+## 0.1.0.2 -- 2023-05-20
+
+* Altering game to take command line arguments for different functions (keygen, enc, dec)
+
+TODO: Fix the non-exhaustive patterns
