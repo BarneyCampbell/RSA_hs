@@ -1,17 +1,19 @@
 module Functions where
 
-import System.Random
-import Math.NumberTheory.Primes
+import Math.NumberTheory.Primes ( nextPrime, Prime(unPrime) )
 
-encrypt :: Integer -> Integer -> Integer
-encrypt plain key = plain ^ key
+encrypt :: Integer -> Integer -> Integer -> Integer
+encrypt plain key base = (plain ^ key) `mod` base
 
-decrypt :: Integer -> Integer -> Integer
-decrypt cipher key = cipher ^ key
-
-rand :: StdGen -> (Integer, Integer)
-rand gen = let x:y:xs = randoms gen
-            in (abs x,  abs y)
+decrypt :: Integer -> Integer -> Integer -> Integer
+decrypt cipher key base = (cipher ^ key) `mod` base
 
 prime :: Integer -> Integer
 prime n = unPrime $ nextPrime n
+
+-- Calculate the multiplicative inverse, d
+-- Needs a proper formula but for small numbers can check until reached.
+multInv :: Integer -> Integer -> Integer -> Integer
+multInv e m d
+        | mod (e * d) m == 1 = d
+        | otherwise = multInv e m (d+1)

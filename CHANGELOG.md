@@ -10,4 +10,7 @@
 
 TODO: find d s.t. d * e mod m = 1
 
-## 0.1.0.1 -- 2023-05-??
+## 0.1.0.1 -- 2023-05-20
+
+* Fixed multiplicative inverse calculator for d
+* Officially able to encrypt and decrypt correctly
